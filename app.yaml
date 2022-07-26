@@ -1,0 +1,35 @@
+runtime: php
+env: flex
+
+runtime_config: document_root: public
+
+# Ensure we skip ".env", which is only for local development
+skip_files: 
+    - .env
+
+automatic_scaling:
+    min_num_instances: 1
+    max_num_instances: 1
+
+resources:
+    cpu: 2
+    memory_gb: 4
+    disk_size_gb: 100
+
+env_variables:
+    # Put production environment variables here.
+    APP_DEBUG: false
+    APP_ENV: production
+    APP_KEY: base64:AStjNiDIS9AsjDafHcXFjBP755KNT8eQvjB8V9Y31XQ=
+    APP_NAME: "RC Dwella"
+
+    LOG_LEVEL: debug
+    MIDTRANS_TRANSACTION_PREFIX: "BOOK-000"
+
+    MIDTRANS_CLIENT_KEY: "SB-Mid-client-gLvkqqVJqXp9_TH2" 
+    MIDTRANS_SERVER_KEY: "SB-Mid-server-S7TF1txJIvRul68NpoN2YVj6" 
+    MIDTRANS_IS_PRODUCTION: false
+    MIDTRANS_IS_SANITIZED: true
+    MIDTRANS_IS_3DS: true
+
+    SHIPPING_COST: 11000
