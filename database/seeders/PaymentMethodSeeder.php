@@ -22,7 +22,7 @@ class PaymentMethodSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'name' => 'Transfer Bank',
+                'name' => 'Transfer',
                 'content' => 'Pembayaran akan dicek otomatis'
             ],
         ]);

@@ -72,7 +72,7 @@
             },
             {
                 data: null,
-                name: null,
+                name: 'time',
                 render: function(data){
                     let content = '<ul>'
                     $.each(data.time, function(i,key){

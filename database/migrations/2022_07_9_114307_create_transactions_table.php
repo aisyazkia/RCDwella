@@ -24,6 +24,8 @@ class CreateTransactionsTable extends Migration
             $table->bigInteger('payment_method_id');
             $table->bigInteger('shipping_cost')->default(0);
             $table->enum('status',['PENDING','PROCESS','DELIVERED','RECEIVED','REJECT','CANCEL','SUCCESS'])->default('PENDING');
+            $table->tinyInteger('payment_proof_status')->default(0);
+            $table->string('payment_url')->nullable();
             $table->bigInteger('total');
             $table->timestamps();
         });

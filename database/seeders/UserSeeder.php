@@ -23,8 +23,8 @@ class UserSeeder extends Seeder
                 'level_id' => 1
             ],
             [
-                'name' => 'User',
-                'email' => 'user@gmail.com',
+                'name' => 'Aisyah',
+                'email' => 'aisyazkia138@gmail.com',
                 'password' => Hash::make('user'),
                 'level_id' => 2
             ]

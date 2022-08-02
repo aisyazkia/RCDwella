@@ -197,7 +197,7 @@
                     <tr>
                       <th class="text-white" width="30px">No</th>
                       <th class="text-white">Tanggal Pemesanan</th>
-                      <th class="text-white">Ongkir</th>
+                      {{-- <th class="text-white">Ongkir</th> --}}
                       <th class="text-white">Total</th>
                       <th class="text-white">Status</th>
                       <th class="text-white">Aksi</th>
@@ -223,6 +223,23 @@
                             $status_name = 'Menunggu di proses';
                             $action = '<a href="'.route('user.profile.history.transaction.detail',$key->id).'" class="btn btn-info">Detail</a>
                             <button class="btn btn-danger btn--cancel ms-1" data-id="'.$key->id.'" data-bs-toggle="modal" data-bs-target="#TransactionModalCancel">Batal</button>';
+                            
+                            if($key->payment->name != "COD")
+                            {
+                              $action .= '<a href="'.$key->payment_url.'" class="btn btn-warning ms-1" target="blank">Bayar</a>';
+                            }
+
+                            if($key->payment_proof_status == '1')
+                            {
+                              $status = 'bg-info';
+                              $status_name = 'Proses pengecekan';
+                              $action = '<a href="'.route('user.profile.history.transaction.detail',$key->id).'" class="btn btn-info">Detail</a>';
+                            }elseif($key->payment_proof_status == '2')
+                            {
+                              $status = 'bg-success';
+                              $status_name = 'Dibayar';
+                              $action = '<a href="'.route('user.profile.history.transaction.detail',$key->id).'" class="btn btn-info">Detail</a>';
+                            }
 
                           }elseif($key->status == 'PROCESS')
                           {
@@ -261,7 +278,7 @@
                       <tr>
                         <th>1</th>
                         <td>{{ date('d M Y',strtotime($key->created_at)) }}</td>
-                        <td>Rp{{ number_format($key->shipping_cost,0,',','.') }}</td>
+                        {{-- <td>Rp{{ number_format($key->shipping_cost,0,',','.') }}</td> --}}
                         <td>Rp{{ number_format($key->total,0,',','.') }}</td>
                         <td><span class="badge {{ $status }}">{{ $status_name }}</span></td>
                         <td>

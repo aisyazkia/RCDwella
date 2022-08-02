@@ -27,7 +27,7 @@
                     <tr>
                         <th class="text-white" width="30px">No</th>
                         <th class="text-white">Tanggal</th>
-                        <th class="text-white">Ongkir</th>
+                        {{-- <th class="text-white">Ongkir</th> --}}
                         <th class="text-white">Total</th>
                         <th class="text-white">Pembayaran</th>
                         <th class="text-white">Status</th>
@@ -142,10 +142,10 @@
                 data: 'created_at',
                 name: 'created_at'
             },
-            {
-                data: 'shipping_cost',
-                name: 'shipping_cost'
-            },
+            // {
+            //     data: 'shipping_cost',
+            //     name: 'shipping_cost'
+            // },
             {
                 data: 'total',
                 name: 'total'

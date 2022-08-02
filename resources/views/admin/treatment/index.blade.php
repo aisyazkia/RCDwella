@@ -69,6 +69,7 @@
             },
             {
                 data: null,
+                name: 'name',
                 render: function(key){
                     return `
                         <div class="d-flex align-items-center">

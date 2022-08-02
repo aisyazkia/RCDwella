@@ -124,16 +124,33 @@
                 <div class="col-12">
                   <label for="" class="mb-2">Metode Pembayaran</label>
                   <div class="mb-3">
-                    <h4 class="mb-0 fw-bold">COD</h4>
+                    @error('payment_method')
+                    <small class="text-danger d-block">{{ $message }}</small>
+                    @enderror
+                    {{-- <h4 class="mb-0 fw-bold">COD</h4>
                     <span class="text-muted">
                       Silahkan lakukan pembayaran ditempat
-                    </span>
+                    </span> --}}
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-12">
-              <div class="mb-2">
+              <div class=" mb-3">
+                @foreach ($payment_method as $payment)
+                <div class="col-md-3">
+                  <textarea hidden class="payment-content-{{ $payment->id }}">{{ $payment->content }}</textarea>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment_method" id="paymentMethod{{ $payment->id }}" value="{{ $payment->id }}" {{ old('payment_method') == $payment->id? 'checked' : '' }}>
+                    <label class="form-check-label" for="paymentMethod{{ $payment->id }}">
+                      &nbsp; {{ $payment->name }}
+                    </label>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+              <div class="payment-transfer-content"></div>
+              {{-- <div class="mb-2">
                 <label for="" class="mb-1 fw-bold">Kurir</label>
                 <select name="courier" class="form-control select2" data-placeholder="Pilih Kurir">
                   <option value="">-- Pilih Kurir --</option>
@@ -143,17 +160,19 @@
                 @error('courier')
                     <small class="text-danger">{{ $message }}</small>
                   @enderror
-              </div>
+              </div> --}}
               <input type="number" class="d-none" id="total-all-input" hidden="hidden" value="{{ $subtotal }}">
-              <div class="mb-2 d-flex align-items-center justify-content-between">
+              {{-- <div class="mb-2 d-flex align-items-center justify-content-between">
                 <label for="">Subtotal</label>
                 <div class="fw-bold">Rp{{ number_format($subtotal,0,',','.') }}</div>
-              </div>
+              </div> --}}
               <div class="mb-3 d-flex align-items-center justify-content-between">
                 <label for="">Total</label>
                 <div class="fw-bold" id="total-all">Rp{{ number_format($subtotal,0,',','.') }}</div>
               </div>
-              <button type="submit" onsubmit="return confirm('Apakah anda yakin ingin membuat pesanan ini?')" class="btn btn-primary d-block w-100">Buat Pesanan</button>
+              <div class="text-end">
+                <button type="submit" onsubmit="return confirm('Apakah anda yakin ingin membuat pesanan ini?')" class="btn btn-primary d-block w-100">Buat Pesanan</button>
+              </div>
             </div>
           </div>
         </div>
@@ -169,16 +188,18 @@
     let contentTf = $('.payment-content-'+$(this).val()).val()
     $('.payment-transfer-content').html(contentTf)
   })
-  $(document).on('change','[name="courier"]', function(e){
-    let total = $('#total-all-input').val()
-    if($(this).val() == '2')
-    {
-      $('#total-all').html('Rp'+toIdr(parseInt(total)+parseInt({{ env('SHIPPING_COST',5000) }})))
-    }else if($(this).val() == '1'){
-      $('#total-all').html('Rp'+toIdr(total))
-    }else{
-      $('#total-all').html('Rp'+toIdr(total))
-    }
-  })
+  // $(document).on('change','[name="courier"]', function(e){
+  //   let total =0
+  //   $('#total-all').html('Rp'+toIdr(total))
+    // let total = $('#total-all-input').val()
+    // if($(this).val() == '2')
+    // {
+    //   $('#total-all').html('Rp'+toIdr(parseInt(total)+parseInt({{ env('SHIPPING_COST',5000) }})))
+    // }else if($(this).val() == '1'){
+    //   $('#total-all').html('Rp'+toIdr(total))
+    // }else{
+    //   $('#total-all').html('Rp'+toIdr(total))
+    // }
+  // })
 </script>
 @endsection

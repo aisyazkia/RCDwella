@@ -120,6 +120,23 @@
                                         $action = '
                                         <button class="btn btn-danger btn--cancel ms-1" data-id="'.$detail->id.'" data-bs-toggle="modal" data-bs-target="#TransactionModalCancel">Batal</button>';
 
+                                        if($detail->payment->name != "COD")
+                                        {
+                                            $action .= '<a href="'.$detail->payment_url.'" class="btn btn-warning ms-1" target="blank">Bayar</a>';
+                                        }
+
+                                        if($detail->payment_proof_status == '1')
+                                        {
+                                            $status = 'bg-info';
+                                            $status_name = 'Proses pengecekan';
+                                            $action = '';
+                                        }elseif($detail->payment_proof_status == '2')
+                                        {
+                                            $status = 'bg-success';
+                                            $status_name = 'Dibayar';
+                                            $action = '';
+                                        }
+
                                     }elseif($detail->status == 'PROCESS')
                                     {
                                         $status = 'bg-info';
@@ -175,7 +192,7 @@
                                     <h5 class="mb-2 font-weight-bold text-dark">Total</h5>
                                     <div class="content">
                                         <ul class="list-group">
-                                            <li class="list-group-item d-flex justify-content-between text-dark"><span class="title--subtotal-pay">Ongkir (GOSEND)</span><span class="transaction--subtotal-pay">Rp{{ number_format($detail->shipping_cost,0,',','.') }}</span></li>
+                                            {{-- <li class="list-group-item d-flex justify-content-between text-dark"><span class="title--subtotal-pay">Ongkir (GOSEND)</span><span class="transaction--subtotal-pay">Rp{{ number_format($detail->shipping_cost,0,',','.') }}</span></li> --}}
                                             <li class="list-group-item d-flex justify-content-between text-dark"><span class="title--subtotal-pay">Subtotal</span><span class="transaction--subtotal-pay">Rp{{ number_format($detail->detail->sum('total'),0,',','.') }}</span></li>
                                             <li class="list-group-item d-flex justify-content-between text-dark"><span class="title--subtotal-pay">Yang harus dibayar</span><span class="transaction--subtotal-pay">Rp{{ number_format($detail->total,0,',','.') }}</span></li>
                                         </ul>

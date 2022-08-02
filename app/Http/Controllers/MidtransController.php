@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ScheduleBooked;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Notification;
@@ -30,7 +31,8 @@ class MidtransController extends Controller
 
         $notification = new Notification();
 
-        $bookedPrefix = env('MIDTRANS_TRANSACTION_PREFIX','BOOK-00');
+        $bookedPrefix = env('MIDTRANS_BOOK_PREFIX','BOOK-TRX-0');
+        $transactionPrefix = env('MIDTRANS_TRANSACTION_PREFIX','TRX-0');
 
         $status = $notification->transaction_status;
         $type = $notification->payment_type;
@@ -38,13 +40,19 @@ class MidtransController extends Controller
         $order_id = $notification->order_id;
 
         $scheduleBookId = null;
+        $transactionId = null;
 
         if(Str::contains($order_id,$bookedPrefix))
         {
             $scheduleBookId = str_replace($bookedPrefix,'',$order_id);
         }
+        
+        if(Str::contains($order_id,$transactionPrefix))
+        {
+            $transactionId = str_replace($transactionPrefix,'',$order_id);
+        }
 
-        if($scheduleBookId == null)
+        if($scheduleBookId == null && $transactionId == null)
         {
             return response([
                 'meta' => [
@@ -54,34 +62,78 @@ class MidtransController extends Controller
             ]);
         }
         
-        $booked = ScheduleBooked::findOrFail($scheduleBookId);
+        if($scheduleBookId)
+        {
+            $booked = ScheduleBooked::findOrFail($scheduleBookId);
 
-        if ($status == 'capture') {
-            if ($type == 'credit_card') {
-                if ($fraud == 'challenge') {
-                    $booked->status = "PENDING";
-                } else {
-                    $booked->payment_proof_status = 2;
+            if ($status == 'capture') {
+                if ($type == 'credit_card') {
+                    if ($fraud == 'challenge') {
+                        $booked->status = "PENDING";
+                    } else {
+                        $booked->payment_proof_status = 2;
+                    }
                 }
+            } else if ($status == 'settlement') {
+                $booked->payment_proof_status = 2;
+            } else if ($status == 'pending') {
+                $booked->status = "PENDING";
+            } else if ($status == 'deny') {
+                $booked->status = "CANCEL";
+            } else if ($status == 'expire') {
+                $booked->status = "CANCEL";
+            } else if ($status == 'cancel') {
+                $booked->status = "CANCEL";
             }
-        } else if ($status == 'settlement') {
-            $booked->payment_proof_status = 2;
-        } else if ($status == 'pending') {
-            $booked->status = "PENDING";
-        } else if ($status == 'deny') {
-            $booked->status = "CANCEL";
-        } else if ($status == 'expire') {
-            $booked->status = "CANCEL";
-        } else if ($status == 'cancel') {
-            $booked->status = "CANCEL";
+
+            $booked->save();
+
+            return response([
+                'meta' => [
+                    'code' => 200,
+                    'message' => 'Midtrans Notification Success!'
+                ]
+            ]);
         }
 
-        $booked->save();
+        if($transactionId)
+        {
+            $transaction = Transaction::findOrFail($transactionId);
+
+            if ($status == 'capture') {
+                if ($type == 'credit_card') {
+                    if ($fraud == 'challenge') {
+                        $transaction->status = "PENDING";
+                    } else {
+                        $transaction->payment_proof_status = 2;
+                    }
+                }
+            } else if ($status == 'settlement') {
+                $transaction->payment_proof_status = 2;
+            } else if ($status == 'pending') {
+                $transaction->status = "PENDING";
+            } else if ($status == 'deny') {
+                $transaction->status = "CANCEL";
+            } else if ($status == 'expire') {
+                $transaction->status = "CANCEL";
+            } else if ($status == 'cancel') {
+                $transaction->status = "CANCEL";
+            }
+
+            $transaction->save();
+
+            return response([
+                'meta' => [
+                    'code' => 200,
+                    'message' => 'Midtrans Notification Success!'
+                ]
+            ]);
+        }
 
         return response([
             'meta' => [
-                'code' => 200,
-                'message' => 'Midtrans Notification Success!'
+                'code' => 422,
+                'message' => 'Error'
             ]
         ]);
     }

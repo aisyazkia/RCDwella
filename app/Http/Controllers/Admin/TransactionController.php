@@ -30,11 +30,32 @@ class TransactionController extends Controller
                 if($data->status == 'PENDING')
                 {
 
-                        $action = '<a href="'.route('admin.transaction.show',$data->id).'" class="btn btn-info mb-1">Detail</a>
+                        // $action = '<a href="'.route('admin.transaction.show',$data->id).'" class="btn btn-info mb-1">Detail</a>
                         
-                        <button class="btn btn-success btn--process ms-1 mb-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalProcess">Proses</button>
+                        // <button class="btn btn-success btn--process ms-1 mb-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalProcess">Proses</button>
 
-                        <button class="btn btn-danger btn--reject ms-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalReject">Tolak</button>';
+                        // <button class="btn btn-danger btn--reject ms-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalReject">Tolak</button>';
+
+                        if($data->payment->name != 'COD')
+                        {
+
+                            $modalProcess = '';
+                            if($data->payment_proof_status == '1')
+                            {
+                                // $action_bayar = '<button class="btn btn-secondary btn--payment-proof mb-1" data-id="'.$data->id.'" data-paymentproof="'.url($data->payment_proof).'" data-bs-toggle="modal" data-bs-target="#ModalUploadPaymentProof">Konfirmasi Pembayaran</button>';
+                            }elseif($data->payment_proof_status == '2'){
+                                $modalProcess = '<button class="btn btn-success btn--process ms-1 me-1 mb-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalProcess">Proses</button>';
+                            }
+
+                            $action = $modalProcess
+                            .'<a href="'.route('admin.transaction.show',$data->id).'" class="btn btn-info mb-1">Detail</a><button class="btn btn-danger btn--reject ms-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalReject">Tolak</button>';
+                        }else{
+                            $action = '<a href="'.route('admin.transaction.show',$data->id).'" class="btn btn-info mb-1">Detail</a>
+                        
+                            <button class="btn btn-success btn--process ms-1 mb-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalProcess">Proses</button>
+    
+                            <button class="btn btn-danger btn--reject ms-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalReject">Tolak</button>';
+                        }
 
                 }elseif($data->status == 'PROCESS')
                 {
@@ -53,9 +74,9 @@ class TransactionController extends Controller
             ->editColumn('total', function($data){
                 return 'Rp'.number_format($data->total,0,',','.');
             })
-            ->editColumn('shipping_cost', function($data){
-                return 'Rp'.number_format($data->shipping_cost,0,',','.');
-            })
+            // ->editColumn('shipping_cost', function($data){
+            //     return 'Rp'.number_format($data->shipping_cost,0,',','.');
+            // })
             ->editColumn('created_at', function($data){
                 return date('d M Y H:i',strtotime($data->created_at));
             })
@@ -64,8 +85,24 @@ class TransactionController extends Controller
                 $status_name = 'Tidak diketahui';
                 if($data->status == 'PENDING')
                 {
-                    $status = 'bg-warning';
-                    $status_name = 'Menunggu di proses';
+
+                    if($data->payment->name != "COD")
+                    {
+                        if($data->payment_proof_status == '1')
+                        {
+                            $status = 'bg-info';
+                            $status_name = 'Proses pengecekan';
+                        }elseif($data->payment_proof_status == '2')
+                        {
+                            $status = 'bg-success';
+                            $status_name = 'Dibayar';
+                        }
+                        $status = 'bg-warning';
+                        $status_name = 'Menunggu di bayar';
+                    }else{
+                        $status = 'bg-warning';
+                        $status_name = 'Menunggu di proses';
+                    }
 
                 }elseif($data->status == 'PROCESS')
                 {

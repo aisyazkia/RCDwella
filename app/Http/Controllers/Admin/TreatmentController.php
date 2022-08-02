@@ -41,6 +41,9 @@ class TreatmentController extends Controller
             ->editColumn('price', function($data){
                 return 'Rp '.number_format($data->price,0,',','.');
             })
+            ->editColumn('name', function($data){
+                return $data->name;
+            })
     
             ->rawColumns(['action'])
             ->make();

@@ -128,7 +128,7 @@ class ScheduleBookedController extends Controller
                 Config::$isSanitized = config('services.midtrans.isSanitized');
                 Config::$is3ds = config('services.midtrans.is3ds');
 
-                $midtransPrefix = env('MIDTRANS_TRANSACTION_PREFIX','BOOK-00');
+                $midtransPrefix = env('MIDTRANS_BOOK_PREFIX','BOOK-TRX-0');
 
                 $midtrans = array(
                     'transaction_details' => array(
