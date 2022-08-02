@@ -88,6 +88,8 @@ class TransactionController extends Controller
 
                     if($data->payment->name != "COD")
                     {
+                        $status = 'bg-warning';
+                        $status_name = 'Menunggu di bayar';
                         if($data->payment_proof_status == '1')
                         {
                             $status = 'bg-info';
@@ -97,8 +99,6 @@ class TransactionController extends Controller
                             $status = 'bg-success';
                             $status_name = 'Dibayar';
                         }
-                        $status = 'bg-warning';
-                        $status_name = 'Menunggu di bayar';
                     }else{
                         $status = 'bg-warning';
                         $status_name = 'Menunggu di proses';
