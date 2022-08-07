@@ -8,21 +8,18 @@
         dan yang lainnya</h2>
 
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
   <main id="main">
 
     <!-- ======= Services Section ======= -->
     <section id="treatment" class="services">
       <div class="container">
-
         <div class="section-title">
           <h2>Treatments</h2>
         </div>
-
-        
         <div class="row">
-
           @foreach ($treatments as $item)
             <div class="col-sm-6 col-md-4 col-xl-4 d-flex align-items-stretch mb-4">
               <div class="icon-box mt-4 mt-xl-0 w-100">
@@ -32,17 +29,15 @@
               </div>
             </div> 
           @endforeach 
-
       </div>
-    </section><!-- End Services Section -->
+    </section>
+    <!-- End Services Section -->
     <!-- ======= Departments Section ======= -->
     <section id="about-us" class="departments">
       <div class="container">
-
         <div class="section-title">
           <h2>Tentang Dwella</h2>
         </div>
-
         <div class="row gy-4">
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">

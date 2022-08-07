@@ -20,14 +20,16 @@ env_variables:
     # Put production environment variables here.
     APP_DEBUG: false
     APP_ENV: production
-    APP_KEY: base64:AStjNiDIS9AsjDafHcXFjBP755KNT8eQvjB8V9Y31XQ=
+    APP_KEY: base64:PSQdzd3BFnwjAmyiNcywL51Y/2AtBliBoLz3LxJ783o=
     APP_NAME: "RC Dwella"
 
     LOG_LEVEL: debug
-    MIDTRANS_TRANSACTION_PREFIX: "BOOK-000"
 
-    MIDTRANS_CLIENT_KEY: "SB-Mid-client-gLvkqqVJqXp9_TH2" 
-    MIDTRANS_SERVER_KEY: "SB-Mid-server-S7TF1txJIvRul68NpoN2YVj6" 
+    MIDTRANS_BOOK_PREFIX: "BOOK-TRX-0"
+    MIDTRANS_TRANSACTION_PREFIX: "TRX-0"
+
+    MIDTRANS_CLIENT_KEY: "Mid-client-QiT9F9tQUS-pbbNt" 
+    MIDTRANS_SERVER_KEY: "Mid-server-e2keiEdZwZWRBODWUO4Dcvp0" 
     MIDTRANS_IS_PRODUCTION: false
     MIDTRANS_IS_SANITIZED: true
     MIDTRANS_IS_3DS: true
