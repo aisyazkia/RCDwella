@@ -100,7 +100,7 @@
                                         $status_name = 'Menunggu Dibayar';
                                         $action = '
                                         <button class="btn btn-danger btn--cancel ms-1" data-id="'.$detail->id.'" data-bs-toggle="modal" data-bs-target="#ModalScheduleBookedCancel">Batal</button>';
-                                    if($detail->payment->name != "COD")
+                                    if($detail->payment->id != "1")
                                     {
                                         $action .= '<button class="btn btn-secondary btn--payment-proof ms-1" data-id="'.$detail->id.'" data-payment="'.$detail->payment->name.'" data-paymentcontent="'.$detail->payment->content.'" data-bs-toggle="modal" data-bs-target="#ModalUploadPaymentProof">Upload Bukti</button>';
                                     }

@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('ongkir', [OngkirController::class, 'index']);
+Route::post('ongkir', [OngkirController::class, 'submit']);
+Route::get('ongkir/province/{id}/cities', [OngkirController::class, 'getCities']);
+
+Route::get('/desclaimer', function () {
+    return view('desclaimer');
+});
 
 Route::get('', [HomeController::class,'index'])->name('home');
 

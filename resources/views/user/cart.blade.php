@@ -18,11 +18,11 @@
     @endif
     <div class="card mb-4">
       <div class="card-body">
-        <p class="mb-4"><span class="text-primary font-italic me-1">Keranjang</span>
+        <p class="mb-4"><span class="text-success font-italic me-1">Keranjang</span>
         </p>
         <div class="table-responsive">
           <table class="table" id="booked--history-table">
-            <thead class="bg-primary text-light">
+            <thead class="bg-success text-light">
               <tr>
                 <th class="text-white" width="30px">No.</th>
                 <th class="text-white" width="250px">Produk</th>
@@ -51,7 +51,7 @@
                         @csrf
                         @method('put')
                         <input type="number" name="qty" class="form-control" value="{{ $item->qty }}" min="1">
-                        <button type="submit" class="btn btn-sm btn-primary input-group-btn">Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success input-group-btn">Simpan</button>
                       </form>
                     </td>
                     <td>
@@ -83,7 +83,7 @@
               <li class="mb-2">Subtotal <span class="ms-3 fw-bold">Rp{{ number_format($subtotal,0,',','.') }}</span></li>
           </ul>
           <div class="button5">
-              <a href="{{ route('user.checkout.index') }}" class="btn btn-primary">Checkout</a>
+              <a href="{{ route('user.checkout.index') }}" class="btn btn-success">Checkout</a>
           </div>
       </div>
       </div>

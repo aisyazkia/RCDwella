@@ -120,7 +120,7 @@
                                         $action = '
                                         <button class="btn btn-danger btn--cancel ms-1" data-id="'.$detail->id.'" data-bs-toggle="modal" data-bs-target="#TransactionModalCancel">Batal</button>';
 
-                                        if($detail->payment->name != "COD")
+                                        if($detail->payment->id != "1")
                                         {
                                             $action .= '<a href="'.$detail->payment_url.'" class="btn btn-warning ms-1" target="blank">Bayar</a>';
                                         }

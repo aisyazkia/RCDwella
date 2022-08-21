@@ -128,7 +128,7 @@
                           $status_name = 'Menunggu Dibayar';
                           $action = '<a href="'.route('user.profile.history.booked.detail',$key->id).'" class="btn btn-info">Detail</a>
                           <button class="btn btn-danger btn--cancel ms-1" data-id="'.$key->id.'" data-bs-toggle="modal" data-bs-target="#ModalScheduleBookedCancel">Batal</button>';
-                          if($key->payment->name != "COD")
+                          if($key->payment->id != "1")
                           {
                             $action .= '<a href="'.$key->payment_url.'" class="btn btn-warning ms-1" target="blank">Bayar</a>';
                           }
@@ -224,7 +224,7 @@
                             $action = '<a href="'.route('user.profile.history.transaction.detail',$key->id).'" class="btn btn-info">Detail</a>
                             <button class="btn btn-danger btn--cancel ms-1" data-id="'.$key->id.'" data-bs-toggle="modal" data-bs-target="#TransactionModalCancel">Batal</button>';
                             
-                            if($key->payment->name != "COD")
+                            if($key->payment->id != "1")
                             {
                               $action .= '<a href="'.$key->payment_url.'" class="btn btn-warning ms-1" target="blank">Bayar</a>';
                             }

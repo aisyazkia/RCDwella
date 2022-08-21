@@ -32,7 +32,7 @@ class ScheduleBookedController extends Controller
                 if($data->status == 'PENDING')
                 {
 
-                    if($data->payment->name != 'COD')
+                    if($data->payment->id != "1")
                     {
 
                         $action_bayar = '';

@@ -21,7 +21,7 @@
                 <form action="{{ route('user.cart.store') }}" method="POST">
                   @csrf
                   <input type="text" name="id" value="{{ $item->id }}" hidden>
-                  <button type="submit" class="btn btn-primary d-block w-100"><i class="fa fa-plus"></i> Tambahkan ke keranjang</button>
+                  <button type="submit" class="btn btn-success d-block w-100"><i class="fa fa-plus"></i> Tambah ke keranjang</button>
                 </form>
               </div>
             </div>

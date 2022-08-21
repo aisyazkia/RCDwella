@@ -58,7 +58,7 @@
                 <div class="row gy-4">
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Deskripsi</h3>
-                    <p>Rumah Cantik Dwella merupakan klinik yang dikhususkan untuk melayani
+                    <p>Rumah Cantik Dwella merupakan salon kecantikan yang dikhususkan untuk melayani
                       perawatan wajah seperti facial, mikrodermabrasi, mesotherapy, chemical peeling, 
                       dan yang lainnya. RC Dwella menawarkan harga yang lebih terjangkau dengan penanganan treatment yang dilakukan oleh ahlinya.</p></div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -102,7 +102,8 @@
           <h2>Lokasi</h2>
           <p>RC Dwella Taman Hayati Salam blok E.2, Jl Muchtar Raya Sawangan Baru Depok</p>
         </div>
-        <iframe style="border:0; width: 100%; height: 350px;"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7929.916961475902!2d106.77297352883542!3d-6.3993518640089135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e97d827c9e4d%3A0x880ced87ca0c5964!2sPerumahan%20Taman%20Hayati%20Salam!5e0!3m2!1sid!2sid!4v1657383430911!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.966883839393!2d106.77112131477003!3d-6.398269095370455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf1560a387c141d9c!2zNsKwMjMnNTMuOCJTIDEwNsKwNDYnMjMuOSJF!5e0!3m2!1sid!2sid!4v1661003044574!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        {{-- <iframe style="border:0; width: 100%; height: 350px;"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7929.916961475902!2d106.77297352883542!3d-6.3993518640089135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e97d827c9e4d%3A0x880ced87ca0c5964!2sPerumahan%20Taman%20Hayati%20Salam!5e0!3m2!1sid!2sid!4v1657383430911!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
       </div>
     </section>
     <!-- ======= Testimonials Section ======= -->
@@ -141,13 +142,12 @@
     </section>
 
     <!-- ======= Gallery Section ======= -->
-    {{-- <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery">
       <div class="container">
 
         <div class="section-title mb-3">
           <h2>Gallery</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+          </div>
       </div>
 
       <div class="container-fluid">
@@ -155,64 +155,64 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-1.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri5.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri5.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-2.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri4.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri4.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-3.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri3.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri3.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-4.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri9.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri9.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-5.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri7.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri7.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-6.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri8.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri8.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-7.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri2.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri2.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="img/gallery/gallery-8.jpg" class="galelry-lightbox">
-                <img src="img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              <a href="img/gallery/galeri6.jpg" class="galelry-lightbox">
+                <img src="img/gallery/galeri6.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
@@ -220,7 +220,7 @@
         </div>
 
       </div>
-    </section> --}}
+    </section>
 
   </main><!-- End #main -->
 @endsection

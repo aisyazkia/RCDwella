@@ -21,7 +21,7 @@
       <div class="col-md-8">
         <div class="card border-0 shadow-sm">
           <div class="card-body">
-            <p class="mb-4"><span class="text-primary font-italic me-1">Detail</span>
+            <p class="mb-4"><span class="text-success font-italic me-1">Detail</span>
             </p>
             <div class="row mb-3">
               <div class="col-md-6">
@@ -62,14 +62,33 @@
                   <small class="text-danger">{{ $message }}</small>
                 @enderror
               </div>
+              <div class="col-sm-6">
+                <div class="mb-3 mt-3">
+                  <label class="mb-2" for="form-ongkir">Ongkos Kirim</label>
+                  <input type="number" name="ongkir" class="form-control" placeholder="Masukkan Ongkos kirim" value="">
+                  @error('ongkir')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
+                </div>
+              </div>
+              <div class="col-sm-3 mt-5">
+                  <button class="btn btn-info btn-block"> <a href="/ongkir" style="color: aliceblue">Cek Ongkir</a> </button>
+              </div>
+              {{-- <div class="col-md-12">
+                <label for="">Ongkir</label>
+                <input type="number" name="ongkir" class="form-control" placeholder="Masukkan Ongkos kirim">
+                @error('ongkir')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
+              </div> --}}
             </div>
             <div class="row">
               <div class="col-md-12">
-                <p class="mb-4"><span class="text-primary font-italic me-1">Keranjang</span>
+                <p class="mb-4"><span class="text-success font-italic me-1">Keranjang</span>
                 </p>
                 <div class="table-responsive">
                   <table class="table" id="booked--history-table">
-                    <thead class="bg-primary text-light">
+                    <thead class="bg-success text-light">
                       <tr>
                         <th class="text-white" width="30px">No.</th>
                         <th class="text-white" width="250px">Produk</th>
@@ -171,7 +190,7 @@
                 <div class="fw-bold" id="total-all">Rp{{ number_format($subtotal,0,',','.') }}</div>
               </div>
               <div class="text-end">
-                <button type="submit" onsubmit="return confirm('Apakah anda yakin ingin membuat pesanan ini?')" class="btn btn-primary d-block w-100">Buat Pesanan</button>
+                <button type="submit" onsubmit="return confirm('Apakah anda yakin ingin membuat pesanan ini?')" class="btn btn-success d-block w-100">Buat Pesanan</button>
               </div>
             </div>
           </div>
@@ -187,6 +206,11 @@
   $(document).on('change','[name="payment_method"]',function(){
     let contentTf = $('.payment-content-'+$(this).val()).val()
     $('.payment-transfer-content').html(contentTf)
+  })
+  $(document).on('input','[name="ongkir"]', function(){
+    let total = $('#total-all-input').val()
+    $('#total-all').html('Rp'+toIdr(parseInt(total)+parseInt($(this).val())))
+
   })
   // $(document).on('change','[name="courier"]', function(e){
   //   let total =0

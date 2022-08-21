@@ -81,13 +81,50 @@
   </div>
 
   <footer class="bg-dark py-5">
-    <div class="container">
+    <div class="container text-center text-md-start">
+      <!-- Grid row -->
+      <div class="row mt-1">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <p class="text-white"><a class="text-white" href="{{ url('') }}">{{ env('APP_NAME') }}</a><br></p>
+          <p class="text-white"><a class="text-white" href="/desclaimer">Desclaimer</a></p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+      
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-4">Contact</h6>
+          <p class="text-white"><i class="fas fa-home me-3"></i> Taman Hayati Salam blok E.2, Jl Munchtar Raya Sawangan Baru, Depok</p>
+          <p class="text-white">
+            <i class="fas fa-envelope me-3"></i>
+            aazkia30@gmail.com
+          </p>
+          <p class="text-white"><i class="fas fa-phone me-3"></i> 081399191244</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+    {{-- <div class="container">
       <div class="row">
         <div class="col-md-8 text-center text-md-start mb-3 mb-md-0">
-          <small class="text-white"><a class="text-white" href="{{ url('') }}">{{ env('APP_NAME') }}</a> <br>© All Rights Reserved</small>
+          <small class="text-white"><a class="text-white" href="{{ url('') }}">{{ env('APP_NAME') }}</a></small>
+        </div>
+        <div class="col-md-8 text-center text-md-start mb-3 mb-md-0">
+          <small class="text-white"><a class="text-white" href="/desclaimer">Desclaimer</a></small>
         </div>
       </div>
-    </div>
+    </div> --}}
   </footer>
 
   <div id="preloader"></div>

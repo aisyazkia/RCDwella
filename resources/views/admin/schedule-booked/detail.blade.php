@@ -97,7 +97,7 @@
                                 $status = 'bg-warning';
                                 $status_name = 'Menunggu Dibayar';
                                 
-                                if($detail->payment->name != 'COD')
+                                if($detail->payment->id != "1")
                                 {
 
                                     $action_bayar = '';

@@ -158,7 +158,7 @@ class ScheduleBookedController extends Controller
                 }
             }
 
-            return redirect()->route('user.profile.index')->with('success','Berhasil membuat janji');
+            return redirect()->route('user.profile.index')->with('success','Berhasil membuat janji. Silahkan datang 10 menit sebelum jam dimulai');
             
         }
         

@@ -36,7 +36,7 @@ class TransactionController extends Controller
 
                         // <button class="btn btn-danger btn--reject ms-1" data-id="'.$data->id.'" data-bs-toggle="modal" data-bs-target="#ModalReject">Tolak</button>';
 
-                        if($data->payment->name != 'COD')
+                        if($data->payment->id != "1")
                         {
 
                             $modalProcess = '';
@@ -86,7 +86,7 @@ class TransactionController extends Controller
                 if($data->status == 'PENDING')
                 {
 
-                    if($data->payment->name != "COD")
+                    if($data->payment->id != "1")
                     {
                         $status = 'bg-warning';
                         $status_name = 'Menunggu di bayar';

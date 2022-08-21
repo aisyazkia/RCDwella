@@ -8,6 +8,7 @@ use App\Models\PaymentMethod;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
@@ -109,6 +110,9 @@ class CheckoutController extends Controller
                     'qty' => $cart->qty,
                     'total' => $cart->product->price*$cart->qty,
                 ];
+                Product::find($cart->product_id)->update([
+                    'stock' => ($cart->product->stock - $cart->qty)
+                ]);
             }
 
             TransactionDetail::insert($detail);

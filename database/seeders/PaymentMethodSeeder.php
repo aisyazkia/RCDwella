@@ -17,8 +17,8 @@ class PaymentMethodSeeder extends Seeder
         PaymentMethod::insert([
             [
                 'id' => 1,
-                'name' => 'COD',
-                'content' => 'Silahkan lakukan pembayaran ditempat'
+                'name' => 'Cash',
+                'content' => 'Silahkan lakukan pembayaran di RC Dwella'
             ],
             [
                 'id' => 2,

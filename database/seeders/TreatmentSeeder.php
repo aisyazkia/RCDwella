@@ -77,24 +77,12 @@ class TreatmentSeeder extends Seeder
             ],
             [
                 'id' => 12,
-                'name' => 'Facial IPL',
-                'description' => 'menghilangkan noda hitam diwajah, mencegah keriput, merontokkan bulu, merawat bekas luka dan mengatasi jerawat',
-                'price' => 200000,
-            ],
-            [
-                'id' => 13,
-                'name' => 'Facial Photo Laser',
-                'description' => 'membersihkan kulit, memperkecil kelenjar minyak, merangsang produksi kolagen, mengurangi pigmentasi, mengurangi penymbatan pada pori-pori',
-                'price' => 200000,
-            ],
-            [
-                'id' => 14,
                 'name' => 'Fasial Masker PDT',
                 'description' => 'mencerahkan wajah, menghilangkan flek bekas jerawat, menghaluskan pori-pori, mengatasi jerawat, mengurangi kadar minyak pada wajah',
                 'price' => 100000,
             ],
             [
-                'id' => 15,
+                'id' => 13,
                 'name' => 'Masker PDT',
                 'description' => 'Memutihkan, menghilangkan jerawat, menghilangkan dan mencegah keriput & urat halus diwajah.',
                 'price' => 50000,
