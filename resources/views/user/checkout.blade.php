@@ -142,6 +142,7 @@
               <div class="row mb-3">
                 <div class="col-12">
                   <label for="" class="mb-2">Metode Pembayaran</label>
+                  <p>Silahkan cek ongkos kirim dan menuliskannya pada kolom ongkos kirim jika memilih metode pembayaran Transfer</p>
                   <div class="mb-3">
                     @error('payment_method')
                     <small class="text-danger d-block">{{ $message }}</small>
